@@ -1,0 +1,113 @@
+<div class="container mt-5">
+  <div class="main-body">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex flex-column align-items-center text-center">
+              <img
+                src="../../assets/user.png"
+                alt="Admin"
+                class="rounded-circle p-1"
+                width="110"
+              />
+              <div class="mt-3">
+                <h4>{{ profile.fullName }}</h4>
+                <p class="text-secondary mb-1">Buyer</p>
+                <p class="text-muted font-size-sm">
+                  {{ profile.address }}
+                </p>
+                <button class="btn btn-primary">
+                  <a style="color: white" href="tel:{{ profile.mobile }}"
+                    >Call</a
+                  >
+                </button>
+                <button class="btn btn-outline-primary">
+                  <a href="https://wa.me/91{{ profile.mobile }}">Message</a>
+                </button>
+              </div>
+            </div>
+            <hr class="my-4" />
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-body">
+            <div class="row mb-3">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Full Name</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="profile.fullName"
+                />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Email</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="profile.email"
+                />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Phone</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="profile.phone"
+                />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Mobile</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="profile.mobile"
+                />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Address</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="profile.address"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-3"></div>
+              <div class="col-sm-9 text-secondary">
+                <input
+                  type="button"
+                  (click)="updateProfile()"
+                  class="btn btn-primary px-4"
+                  value="Save Changes"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
