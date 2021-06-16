@@ -9,6 +9,7 @@ import { ProductViewComponent } from './product-view/product-view.component';
 import { BuyerProfileComponent } from './buyer-profile/buyer-profile.component';
 import { CartComponent } from './cart/cart.component';
 import { MyProductsComponent } from './my-products/my-products.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,10 @@ const routes: Routes = [
     path: 'my-products',
     canActivate: [AuthGuard],
     component: MyProductsComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent
   }
 ];
 

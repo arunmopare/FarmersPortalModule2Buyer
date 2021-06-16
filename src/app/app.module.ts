@@ -20,6 +20,9 @@ import { CartComponent } from './cart/cart.component';
 import { NgxStripeModule } from 'ngx-stripe';
 import { StripeCheckoutModule } from 'ng-stripe-checkout';
 import { MyProductsComponent } from './my-products/my-products.component';
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
+import { WelcomeBannerComponent } from './home/welcome-banner/welcome-banner.component';
 
 
 @NgModule({
@@ -32,7 +35,10 @@ import { MyProductsComponent } from './my-products/my-products.component';
     ProductViewComponent,
     BuyerProfileComponent,
     CartComponent,
-    MyProductsComponent
+    MyProductsComponent,
+    HeaderComponent,
+    HomeComponent,
+    WelcomeBannerComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,10 @@
+* {
+  font-family: Righteous /* Replace with your custom font */, sans-serif !important;
+  /* Add !important to overwrite all elements */
+}
+
+.main-banner {
+  z-index: -1;
+
+  top: -100px;
+}

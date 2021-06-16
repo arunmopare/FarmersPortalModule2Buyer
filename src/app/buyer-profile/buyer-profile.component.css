@@ -1,3 +1,12 @@
+.alert {
+  color: red;
+}
+
+* {
+  font-family: Righteous /* Replace with your custom font */, sans-serif !important;
+  /* Add !important to overwrite all elements */
+}
+
 body {
   background: #f7f7ff;
   margin-top: 20px;

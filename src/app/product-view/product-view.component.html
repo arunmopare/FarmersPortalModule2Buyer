@@ -1,106 +1,110 @@
 <!--Section: Block Content-->
-<section class="mb-5 mt-5">
-  <div class="row">
-    <div class="col-md-6 mb-4 mb-md-0">
-      <div id="mdb-lightbox-ui"></div>
+<div class="container">
+  <section class="mb-5 mt-5">
+    <div class="row">
+      <div class="col-md-6 mb-4 mb-md-0">
+        <div id="mdb-lightbox-ui"></div>
 
-      <div class="mdb-lightbox">
-        <div class="row product-gallery mx-1">
-          <div class="col-12 mb-0">
-            <figure class="view overlay rounded z-depth-1 main-img">
-              <a [href]="product.productImageUrl" data-size="710x823">
-                <img
-                  [src]="product.productImageUrl"
-                  class="img-fluid z-depth-1"
-                />
-              </a>
-            </figure>
+        <div class="mdb-lightbox">
+          <div class="row product-gallery mx-1">
+            <div class="col-12 mb-0">
+              <figure class="view overlay rounded z-depth-1 main-img">
+                <a [href]="product.productImageUrl" data-size="710x823">
+                  <img
+                    style="border-radius: 10%"
+                    [src]="product.productImageUrl"
+                    class="img-fluid z-depth-1"
+                  />
+                </a>
+              </figure>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="col-md-6">
-      <h5>{{ product.productName }}</h5>
-      <p class="mb-2 text-muted text-uppercase small">Category</p>
+      <div class="col-md-6">
+        <h5>{{ product.productName }}</h5>
+        <p class="mb-2 text-muted text-uppercase small">Category</p>
 
-      <p>
-        <span class="mr-1"
-          >price per unit<strong>
-            <span style="color: red">{{ product.productPrice }}</span> ₹</strong
-          ></span
+        <p>
+          <span class="mr-1"
+            >price per unit<strong>
+              <span style="color: red">{{ product.productPrice }}</span>
+              ₹</strong
+            ></span
+          >
+        </p>
+        <p class="pt-1">
+          {{ product.productDescription }}
+        </p>
+        <div class="table-responsive">
+          <table class="table table-sm table-borderless mb-0">
+            <tbody>
+              <tr>
+                <th class="pl-0 w-25" scope="row"><strong>Delivery</strong></th>
+                <td>India</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <hr />
+        <div class="table-responsive mb-2">
+          <table class="table table-sm table-borderless">
+            <tbody>
+              <tr>
+                <td class="pl-0 pb-0 w-25">
+                  Available in Stock
+                  <span style="color: red">{{ product.productQuantity }}</span>
+                </td>
+                <td>
+                  <button
+                    *ngIf="product.productQuantity <= 0"
+                    type="button"
+                    class="btn btn-danger"
+                  >
+                    Out Of Stock
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td class="pl-0">
+                  Quantity
+                  <div class="def-number-input number-input safari_only mb-0">
+                    <input
+                      placeholder="X"
+                      class="quantity"
+                      [(ngModel)]="quant"
+                      min="0"
+                      max="{{ product.productQuantity }}"
+                      name="quantity"
+                      value="disable"
+                      type="number"
+                    />
+                  </div>
+                </td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <button type="button" class="btn btn-primary btn-md mr-1 mb-2">
+          Buy now
+        </button>
+        <button
+          type="button"
+          (click)="addToCart()"
+          [disabled]="
+            quant == 0 ||
+            product.productQuantity == 0 ||
+            quant > product.productQuantity
+          "
+          class="btn btn-light btn-md mr-1 mb-2"
         >
-      </p>
-      <p class="pt-1">
-        {{ product.productDescription }}
-      </p>
-      <div class="table-responsive">
-        <table class="table table-sm table-borderless mb-0">
-          <tbody>
-            <tr>
-              <th class="pl-0 w-25" scope="row"><strong>Delivery</strong></th>
-              <td>India</td>
-            </tr>
-          </tbody>
-        </table>
+          <i class="fas fa-shopping-cart pr-2"></i>Add to cart
+        </button>
       </div>
-      <hr />
-      <div class="table-responsive mb-2">
-        <table class="table table-sm table-borderless">
-          <tbody>
-            <tr>
-              <td class="pl-0 pb-0 w-25">
-                Available in Stock
-                <span style="color: red">{{ product.productQuantity }}</span>
-              </td>
-              <td>
-                <button
-                  *ngIf="product.productQuantity <= 0"
-                  type="button"
-                  class="btn btn-danger"
-                >
-                  Out Of Stock
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td class="pl-0">
-                Quantity
-                <div class="def-number-input number-input safari_only mb-0">
-                  <input
-                    placeholder="X"
-                    class="quantity"
-                    [(ngModel)]="quant"
-                    min="0"
-                    max="{{ product.productQuantity }}"
-                    name="quantity"
-                    value="disable"
-                    type="number"
-                  />
-                </div>
-              </td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <button type="button" class="btn btn-primary btn-md mr-1 mb-2">
-        Buy now
-      </button>
-      <button
-        type="button"
-        (click)="addToCart()"
-        [disabled]="
-          quant == 0 ||
-          product.productQuantity == 0 ||
-          quant > product.productQuantity
-        "
-        class="btn btn-light btn-md mr-1 mb-2"
-      >
-        <i class="fas fa-shopping-cart pr-2"></i>Add to cart
-      </button>
     </div>
-  </div>
-</section>
-<!--Section: Block Content-->
-<app-events></app-events>
+  </section>
+  <!--Section: Block Content-->
+  <app-events></app-events>
+</div>

@@ -1,24 +1,34 @@
-<div class="cart-tables">
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Product</th>
-        <th scope="col">Quantity</th>
-        <th scope="col">Prize Per Unit</th>
-        <th scope="col">Total</th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
+.
+<div class="container">
+  <div class="container-fluid">
+    <div class="col">
+      <div class="d-flex justify-content-center row">
+        <h1 class="">Previously Purchased Products</h1>
+      </div>
+    </div>
+  </div>
+  <div class="cart-tables">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Product</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Prize Per Unit</th>
+          <th scope="col">Total</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
 
-    <tbody>
-      <tr *ngFor="let cart of cartItems; let i = index">
-        <th scope="row">{{ i + 1 }}</th>
-        <td>{{ cart.productName }}</td>
-        <td>x{{ cart.productQuantity }}</td>
-        <td>{{ cart.productPricePerUnit }}</td>
-        <td>{{ cart.total }}₹</td>
-      </tr>
-    </tbody>
-  </table>
+      <tbody>
+        <tr *ngFor="let cart of cartItems; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ cart.productName }}</td>
+          <td>x{{ cart.productQuantity }}</td>
+          <td>{{ cart.productPricePerUnit }}</td>
+          <td>{{ cart.total }}₹</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

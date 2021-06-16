@@ -31,6 +31,7 @@
           </div>
         </div>
       </div>
+
       <div class="col-lg-8">
         <div class="card">
           <div class="card-body">
@@ -40,10 +41,23 @@
               </div>
               <div class="col-sm-9 text-secondary">
                 <input
+                  required
+                  minlength="4"
+                  name="fullName"
                   type="text"
+                  #fullName="ngModel"
                   class="form-control"
                   [(ngModel)]="profile.fullName"
                 />
+              </div>
+              <div
+                *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)"
+                class="alert"
+              >
+                <div *ngIf="fullName.errors?.required">Name is required.</div>
+                <div *ngIf="fullName.errors?.minlength">
+                  Name must be at least 4 characters long.
+                </div>
               </div>
             </div>
             <div class="row mb-3">
@@ -52,10 +66,22 @@
               </div>
               <div class="col-sm-9 text-secondary">
                 <input
-                  type="text"
+                  type="email"
+                  name="email"
+                  required
+                  ngModel
+                  pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
+                  #email="ngModel"
                   class="form-control"
                   [(ngModel)]="profile.email"
                 />
+              </div>
+              <div
+                *ngIf="email.invalid && (email.dirty || email.touched)"
+                class="alert"
+              >
+                <div *ngIf="email.errors?.required">Email is required.</div>
+                <div *ngIf="email.invalid">Invalid Email.</div>
               </div>
             </div>
             <div class="row mb-3">
@@ -65,9 +91,20 @@
               <div class="col-sm-9 text-secondary">
                 <input
                   type="text"
+                  name="phone"
+                  required
+                  pattern="\+?\d[\d -]{8,12}\d"
+                  #phone="ngModel"
                   class="form-control"
                   [(ngModel)]="profile.phone"
                 />
+              </div>
+              <div
+                *ngIf="phone.invalid && (phone.dirty || phone.touched)"
+                class="alert"
+              >
+                <div *ngIf="phone.errors?.required">phone is required.</div>
+                <div *ngIf="phone.invalid">Invalid phone.</div>
               </div>
             </div>
             <div class="row mb-3">
@@ -77,9 +114,20 @@
               <div class="col-sm-9 text-secondary">
                 <input
                   type="text"
+                  name="mobile"
+                  required
+                  pattern="\+?\d[\d -]{8,12}\d"
+                  #mobile="ngModel"
                   class="form-control"
                   [(ngModel)]="profile.mobile"
                 />
+              </div>
+              <div
+                *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)"
+                class="alert"
+              >
+                <div *ngIf="mobile.errors?.required">mobile is required.</div>
+                <div *ngIf="mobile.invalid">Invalid mobile.</div>
               </div>
             </div>
             <div class="row mb-3">
@@ -88,10 +136,24 @@
               </div>
               <div class="col-sm-9 text-secondary">
                 <input
+                  required
+                  minlength="4"
+                  name="add"
+                  type="text"
+                  #add="ngModel"
                   type="text"
                   class="form-control"
                   [(ngModel)]="profile.address"
                 />
+              </div>
+              <div
+                *ngIf="add.invalid && (add.dirty || add.touched)"
+                class="alert"
+              >
+                <div *ngIf="add.errors?.required">Address is required.</div>
+                <div *ngIf="add.errors?.minlength">
+                  Address must be at least 4 characters long.
+                </div>
               </div>
             </div>
             <div class="row">
@@ -99,6 +161,13 @@
               <div class="col-sm-9 text-secondary">
                 <input
                   type="button"
+                  [disabled]="
+                    fullName.invalid ||
+                    email.invalid ||
+                    phone.invalid ||
+                    mobile.invalid ||
+                    add.invalid
+                  "
                   (click)="updateProfile()"
                   class="btn btn-primary px-4"
                   value="Save Changes"

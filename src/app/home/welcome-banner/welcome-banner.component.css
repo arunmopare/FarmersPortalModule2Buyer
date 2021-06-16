@@ -1,0 +1,52 @@
+.contact-box {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 6% 5% 0% 5%;
+}
+
+.left {
+  height: 100%;
+}
+
+
+.heading {
+  padding: 1px 0;
+}
+
+.description-1 h5 p {
+  text-align: center;
+  line-height: 1.6;
+  font-weight: lighter;
+}
+
+@media screen and (max-width: 880px) {
+  .contact-box {
+    grid-template-columns: 1fr;
+  }
+  .right {
+    height: 300px;
+  }
+}
+
+.container-fluid {
+  margin-bottom: 100px;
+  margin-top: 40px;
+}
+
+.btn {
+  background-color: #f9d307;
+  color: #ffffff;
+}
+
+@media only screen and (max-width: 880px) {
+  .description-1 h5 p {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .right {
+    height: 180px;
+  }
+}
